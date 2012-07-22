@@ -17,7 +17,7 @@ LIBS += -L../../lib -L../../bin
 win32 {
     LIBS += -lQtOpenCL
     !isEmpty(QMAKE_INCDIR_OPENCL) {
-        QMAKE_CXXFLAGS += -I$$QMAKE_INCDIR_OPENCL
+		INCLUDEPATH += $$QMAKE_INCDIR_OPENCL
     }
     !isEmpty(QMAKE_LIBDIR_OPENCL) {
         LIBS += -L$$QMAKE_LIBDIR_OPENCL
