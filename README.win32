@@ -6,11 +6,18 @@ QMAKE_LIBDIR_OPENCL variables. Running "qmake -set" didn't work so
 I added them to the qmake.conf file referenced by the QMAKESPEC. 
 Here are the lines that I added:
 
-QMAKE_INCDIR_OPENCL = "C:/Program Files (x86)/ATI Stream/include"
-QMAKE_LIBDIR_OPENCL = "C:/Program Files (x86)/ATI Stream/lib/x86_64"
+File: mkspecs\win32-msvc2010\qmake.conf
+
+QMAKE_INCDIR_OPENCL = "C:/Program Files (x86)/AMD APP/include"
+QMAKE_LIBDIR_OPENCL = "C:/Program Files (x86)/AMD APP/lib/x86_64"
 
 Building
 --------
 
-qmake opencl.pro
+qmake opencl.pro CONFIG+=opencl_1_1 
 nmake release
+
+*** "nmake release" vs "nmake debug" is super important. Make sure
+*** that it matches what you're using in your project. Otherwise
+*** you'll get weird crashes. Surprisingly VS2010 didn't give 
+*** a linker warning when I did this.

@@ -514,6 +514,11 @@ void QCLKernel::setLocalWorkSize(const QCLWorkSize &size)
     on this kernel.  Default value is 8x8 unless the maximum work size
     is not large enough to accomodate 8x8 items.
 
+	FAH NOTE: Calling this method twice appears to cause run() to crash
+	          somewhere inside the OpenGL library. Only calling once
+			  fixes the problem. It appears to be an issue with calling
+			  maximumWorkItemsPerGroup().
+
     \sa bestLocalWorkSizeImage3D()
 */
 QCLWorkSize QCLKernel::bestLocalWorkSizeImage2D() const
